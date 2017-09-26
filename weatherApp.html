@@ -1,0 +1,99 @@
+<!--Some of this code is based on code from the course website-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+ <script>
+
+
+document.addEventListener('DOMContentLoaded', bindButtons);
+console.log("2");
+      function bindButtons(){
+        document.getElementById('subButton').addEventListener('click', function(event){
+
+console.log("3");        
+        
+	  var appid = "REDACTED";  
+	  var URL;
+	  if(document.getElementById("city").value == ""){
+		var zip_in = document.getElementById("zipCode").value;
+		console.log(zip_in);
+		URL = 'api.openweathermap.org/data/2.5/weather?zip=' + zip_in + ',us&appid=' + appid;
+	
+  }else{
+		var city_in = document.getElementById("city").value;
+console.log(city_in);
+		URL = 'api.openweathermap.org/data/2.5/weather?q=' + city_in + ',us&appid=' + appid;
+	}
+
+
+console.log("4");
+	  var req = new XMLHttpRequest();
+	  
+          req.open('GET', URL, true);
+	  req.addEventListener('load',function(){
+      if(req.status >= 200 && req.status < 400){
+        var response = JSON.parse(req.responseText);
+        console.log(response);
+        var location;
+        var temp;
+        var humidity;
+        location.textContent = document.getElementById('response').name;
+        temp.textContent = document.getElementById('response').main.temp;
+        humidity.textContent = document.getElementById('response').main.humidity;
+        console.log(location.textContent);
+        console.log(temp.textContent);
+        console.log(humidity.textContent);
+
+        <!--document.getElementById('response').innerHTML = `City:${response.name} Temperature:${(response.main.temp - 273.15).toFixed(1)}°C Humidity:${response.main.humidity}%`;-->
+      } else {
+        console.log("Error in network request: " + req.statusText);
+      }});
+    req.send(null);
+    event.preventDefault();
+
+          
+        });
+console.log("11");
+      }
+
+
+
+</script>
+
+  </head>
+     
+  <body> 
+
+<form>
+	<fieldset>
+        <legend>Get weather information!</legend>
+        <label>Enter city:</label>
+        <input type="text" name="text_input" id="city" value="">
+        
+        <br />
+        <label>Enter zip code: </label> 
+        <input type="number" name="number_input" id="zipCode">
+	<br />
+        <input type="submit" id="subButton">
+	</fieldset>
+</form>
+
+
+
+ </body>   
+ </html>   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

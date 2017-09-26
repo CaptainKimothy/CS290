@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+</head>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', bindButtons);
+
+      function bindButtons(){
+        document.getElementById('submit').addEventListener('click', function(event){
+          var req = new XMLHttpRequest();
+          //var payload = {longUrl:null};
+          //payload.longUrl = document.getElementById('longUrl').value;
+          req.open('GET', 'C:/Users/Pirate/Desktop/database.html', true);
+          req.send(null);
+          var response = JSON.parse(req.responseText);
+          document.getElementById('exercise').textContent = response.exercise;
+          document.getElementById('reps').textContent = response.reps;
+	  document.getElementById('weight').textContent = response.weight;
+	  document.getElementById('date').textContent = response.date;
+	  document.getElementById('lbs').textContent = response.lbs;
+          event.preventDefault();
+      
+
+	
+	var newRow = tableElem.insertRow(-1);
+ 	var newCell = newRow.insertCell(0);
+ 	var newText = document.createTextNode(exercise.value);
+ 	newCell.appendChild(newText);
+ 	newCell = newRow.insertCell(1);
+ 	newText = document.createTextNode(reps.value);
+ 	newCell.appendChild(newText);
+ 	newCell = newRow.insertCell(2);
+ 	newText = document.createTextNode(weight.value);
+ 	newCell.appendChild(newText);
+ 	newCell = newRow.insertCell(3);
+ 	newText = document.createTextNode(date.value);
+ 	newCell.appendChild(newText);
+ 	newCell = newRow.insertCell(4);
+ 	newText = document.createTextNode(lbs.value);
+ 	newCell.appendChild(newText); 
+ 	  })
+      }
+
+
+</script>
+ <body>
+  <h1>
+    Welcome to your Exercise Tracker!
+	</h1>
+  <form action="" method="post" name="new_entry">
+    <fieldset>
+        <legend>Enter Exercise Information:</legend>
+        <label>Name of Exercise:
+            <input type="text" name="exercise" size="30" maxlength="100" id="exercise">
+        </label>
+        <br />
+        <label>Number of Reps:
+            <input type="text" name="reps" size="30" maxlength="100" id="reps">
+        </label>
+        <br />
+      <label>Weight Used (Enter 0 if none):
+            <input type="text" name="weight" size="30" maxlength="100" id="weight">
+        </label>
+        <br />
+      <label>Date (yyyy-mm-dd):
+            <input type="text" name="date" size="30" maxlength="100" id="date">
+        </label>
+        <br />
+      <label>Pounds (Enter 1) or Kilograms (Enter 0):
+            <input type="text" name="lbs" size="30" maxlength="100" id="lbs">
+        </label>
+        <br />
+        <br />
+        <input type="submit" value="Submit" id="submit">
+    </fieldset>
+    </form>
+
+
+<div>
+      <h2>Your Exercise</h2>
+      
+    
+      
+    </div>
+  
+ 
+</body>
+</html>

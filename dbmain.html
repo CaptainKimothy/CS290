@@ -1,0 +1,56 @@
+<script src="db.js" type="text/javascript"></script>
+<h1>Welcome to your Exercise Tracker!</h1>
+<!-- create the data entry form -->
+<br />
+<form>
+<fieldset>
+<legend>Enter Nex Exercise Information</legend>
+<label>Name of Exercise:
+	<input type="text" name="exercise" id="exercise">
+</label>
+<label>Number of Reps:
+	<input type="text" name="reps" id="reps">
+</label>
+<label>Weight Used:
+	<input type="text" name="weight" id="weight">
+</label>
+<label>Date (yyyy-mm-dd):
+	<input type="text" name="date" id="date">
+</label>
+<label>Pounds (Enter 1) or Kilograms (Enter 0)
+	<input type="text" name="lbs" id="lbs">
+</label>
+<button type="button" id="submitButton">Submit Entry</button>
+</fieldset>
+<form>
+
+<br />
+<br />
+<br />
+
+
+<!-- create a table that will update automatically -->
+<form action="" method="post" name="tableForm">  
+  
+<TABLE width="425" border="1" id="dataTable">
+<thead>
+<tr>
+<th width="200">Exercise</th>
+<th width="100">Reps</th>
+<th width="100">Weight</th>
+<th width="100">Date</th>
+<th width="100">Pounds(1) or Kilograms(0)</th>
+<th width="100">Edit</th>  
+<th width="100">Delete</th>
+
+</tr>
+</thead>
+<tbody id="tBody">
+
+</tbody>
+</TABLE>
+
+
+</form>
+
+
